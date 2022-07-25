@@ -1,0 +1,113 @@
+<div class="dark-font">
+	<mdb-breadcrumb textTransform="uppercase" customClass="cyan lighten-4">
+		<mdb-breadcrumb-item >Medecin</mdb-breadcrumb-item>
+		<mdb-breadcrumb-item class="active">Agenda</mdb-breadcrumb-item>
+	</mdb-breadcrumb>
+</div>  
+<div class="container" >
+	<div class="row">
+		<div class="col-md-9">
+			<ejs-schedule #scheduleObj width='100%' height='550px' locale='fr-CH' [color]="color" [readonly]="readonly" [selectedDate]="selectedDate" [eventSettings]="eventSettings"  [views]="views" [workDays]="workDays"  [endHour]='endHour' [startHour]="startHour" [workHours]="workHours" 
+			(popupOpen)="onPopupOpen($event)" [reminderSettings.enable]="true" [reminderSettings.alertBefore]="10" (reminder)="reminderCustom($event)" timeZone="UTC +00:00">	
+
+			<ng-template #quickInfoTemplatesHeader let-data>
+				<div *ngIf="data.elementType === 'cell' || data.elementType === 'event' ">
+					<div class="quick-info-header">
+						<div class="quick-info-header-content" [ngStyle]=getBackGroundColor(data)>
+							<div class="quick-info-title">
+								Rendez Vous : Details
+							</div>
+							<div class='duration-text'>
+								{{getEventDetails(data)}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-template>
+			<ng-template #quickInfoTemplatesContent let-data>
+				<ng-container [ngTemplateOutlet]="data.elementType == 'cell' ? cellContent : eventContent"
+				[ngTemplateOutletContext]="{data:data}"></ng-container>
+			</ng-template>
+			<ng-template #cellContent let-data="data">
+				<div class="e-cell-content">
+					<form class="e-schedule-form">
+						<div style="padding:10px">
+							<input class="subject e-field" type="text" name="Subject" placeholder="Title"
+							style="width:100%">
+						</div>
+						<div style="padding:10px">
+							<input class="location e-field" type="text" name="Location" placeholder="Location"
+							style="width:100%">
+						</div>
+					</form>
+				</div>
+			</ng-template>
+			<ng-template #eventContent let-data="data">
+				<div *ngIf="(data.elementType === 'event')">
+					<div class="event-content">
+						<div class="patient-name-wrap">
+							<label>Patient Name</label>:
+							<span>{{getPatientName(data)}}</span>
+						</div>
+						<div class="doctor-name-wrap">
+							<label>Strucutre</label>:
+							<span> {{data.lieu}} </span>
+						</div>
+						<div class="notes-wrap">
+							<label>Motif</label>:
+							<span>{{data.title}}</span>
+						</div>
+					</div>
+				</div>
+			</ng-template>			
+		</ejs-schedule>
+	</div>
+	<div class="col-md-3 property-section  property-customization">
+		<mat-card class="card flex-fill">
+
+			<mat-card-content>
+				<div class="property-panel-section">
+					<p class="property-panel-header header-customization" style="width: 100%">Rechercher evenement par tous les champs</p>
+					<div class="property-panel-content">
+						<input type="text" class="e-input" id="events-search" placeholder="Enter the Search text" (keyup)="globalSearch($event)" />
+					</div>
+					<br>
+					<form class="event-search" id="form-search">
+						<p class="property-panel-header  header-customization" style="width: 100%">Rechercher evenement par champs specifique </p>
+							<div class="md-form">
+								<input #subject type="text" class="e-input e-subject" name="Subject" id="Subject"
+								placeholder="Subject" />
+							</div>
+						
+							<div class="md-form">
+								<input #location type="text" class="e-input e-location" name="Location" id="Location"
+								placeholder="Location" />
+							</div>
+
+						
+							<div class="md-form">
+								<ejs-datepicker #startTime id='StartTime' class="e-start-time" [showClearButton]=false name="StartTime"
+								placeholder="Start Time"></ejs-datepicker>
+							</div>
+							<div class="md-form">
+								<ejs-datepicker #endTime id='EndTime' class="e-end-time" [showClearButton]=false name="EndTime"
+								placeholder="End Time"></ejs-datepicker>
+							</div>
+							<div class="button-row">
+							<button ejs-button id="seperateSearch" type="button" content="Search" (click)="searchOnClick()"></button>
+
+							<button ejs-button id="clear" content="Clear" type="button" (click)='clearOnClick()'></button>
+							</div>
+							
+						</form>
+					</div>			
+
+				</mat-card-content>
+
+			</mat-card>
+
+		</div>
+
+
+	</div>
+</div>

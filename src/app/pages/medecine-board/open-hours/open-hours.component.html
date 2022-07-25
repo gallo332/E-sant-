@@ -1,0 +1,55 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 ">
+			<mat-card class="card flex-fill">
+				<mat-card-header class="card-header text-center">
+					<mat-card-title class="">
+						MODIFIER LES OUVERTURES
+					</mat-card-title>
+					<hr>
+				</mat-card-header>
+
+				<mat-card-content>
+					<div class="break-hour-container col-md-8">
+						<form  >
+							<div class="break-hour-operations">
+								<h6> Clique sur le jour pour ajouter une pause, double clique pour desactiver le jour et trois clique pour supprimer la pause </h6>
+								
+							</div>
+							<div class="break-hour-header">
+								<div></div>
+								<div>Heure de Début</div>
+								<div>Heure de Fin</div>
+							</div>
+							<div class="break-hour-days" *ngFor="let day of breakDays">
+								<div class="day-button {{day.state}}">
+									<button ejs-button id={{day.jour}}_button cssClass="e-small e-round" [isPrimary]="true"
+									(click)='onChangeStatus($event)' [attr.data-state]=day.state>{{getDayName(day.jour)}}</button>
+								</div>
+								<div class="start-container {{day.state}}">
+									<ejs-timepicker  [locale]='locale' cssClass="e-field" id={{day.jour}}_start [enabled]=getStatus(day.state)
+									[value]=day.breakStartHour [showClearButton]=false></ejs-timepicker>
+								</div>
+								<div class="end-container {{day.state}}">
+									<ejs-timepicker [locale]='locale' cssClass='e-field' id={{day.jour}}_end [enabled]=getStatus(day.state)
+									[value]=day.breakEndHour [showClearButton]=false></ejs-timepicker>
+								</div>
+								<div class='state-container {{day.state}}'>
+									<div>Time Off</div>
+								</div>
+							</div>
+							<br>
+							<div class="button-container" style="margin-bottom: 11px;">				
+       							 <button type="button" class="btn btn-info " (click)='onSaveClick($event)'>Enregistrer</button>
+     						 </div>
+						</form>
+
+					</div>
+
+
+
+			</mat-card-content>
+			
+		</mat-card>
+	</div>
+</div>

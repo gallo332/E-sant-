@@ -1,0 +1,78 @@
+<header class="header">
+	<nav class="navbar navbar-expand-lg header-nav">
+		<div class="navbar-header">
+			<a id="mobile_btn" href="javascript:void(0);">
+				<span class="bar-icon">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</a>
+			<a href="#" class="navbar-brand logo">
+				<img src="assets/img/logoss.PNG" class="img-fluid" alt="Logo">
+			</a>
+		</div>
+		<div class="main-menu-wrapper">
+			<div class="menu-header">
+				<a href="index.html" class="menu-logo">
+					<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+				</a>
+				<a id="menu_close" class="menu-close" href="javascript:void(0);">
+					<i class="fas fa-times"></i>
+				</a>
+			</div>
+			<ul class="main-nav">
+				<!-- <li class="active">
+					<a [routerLink]="['/home']">Home</a>
+				</li> -->
+							<li class="nav-item active"> 
+								<a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home fa-fw"></i>&nbsp;Home <span class="sr-only">(current)</span></a> 
+							</li>
+				<!-- <li class="nav-item contact-item"> -->
+					<!-- <div class="header-contact-img"> -->
+						<!-- <i class="far fa-hospital"></i>							 -->
+					<!-- </div> -->
+					<!-- <div class="header-contact-detail"> -->
+						<!-- <ul class="navbar-nav ml-auto"> -->
+							<li class="nav-item "> 
+								<a class="nav-link" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Apropos <span class="sr-only">(current)</span></a> 
+							</li>
+							<!-- <li class="nav-item active"> 
+								<a class="nav-link" href="#"><i class="fa fa-area-chart" aria-hidden="true"></i>&nbsp;Statistique <span class="sr-only">(current)</span></a>
+							 </li> -->
+							<li class="nav-item"> 
+								<a class="nav-link" href="#"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;Contact</a> 
+							</li>
+						<!-- </ul> -->
+						<!-- <p class="contact-header">Contact</p>
+						<p class="contact-info-header"> 800 00 50 50 </p> -->
+						
+					<!-- </div> -->
+				<!-- </li> -->
+		
+			</ul>		 
+		</div>		 
+		<ul class="nav header-navbar-rht">
+			
+			<li class="nav-item">
+				<a class="nav-link header-pro" [routerLink]="['/login-admin']" >Admin</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link header-pro" [routerLink]="['/login-pro']" >Professionnel_Santé</a>
+			</li>
+			<li>
+					
+					<!-- <a class="elementor-button-link elementor-button elementor-size-md" role="button" [routerLink]="['/login-patient']">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-text">Login</span>
+						</span>
+					</a> -->
+					<button class="favorite styled" type="button">
+						<a class="nav-link" [routerLink]="['/login-patient']">Login</a>
+					</button>
+			</li>
+			
+		</ul>
+	</nav>
+</header>
+<!-- /Header -->

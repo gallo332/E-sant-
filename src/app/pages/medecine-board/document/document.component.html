@@ -1,0 +1,64 @@
+<mat-toolbar>
+	<span class="fill-remaining-space"></span>
+	<button  mdbBtn class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="partageForm" (ngSubmit)="onSubmit()" >
+	<div class="row">
+		<div class="col-md-5">
+			<div class="md-form">
+				<mat-form-field>
+					<mat-label>Type de Document</mat-label>
+					<mat-select [formControl]="docTypeControl" name="docType" (selectionChange)="chargerDoc($event)">
+						<mat-option   [value]="0">
+							Feuille Observation
+						</mat-option>
+						<mat-option   [value]="1">
+							Traitement
+						</mat-option>						
+					</mat-select>
+				</mat-form-field>
+
+			</div>
+			<div class="md-form"  *ngIf="observation;  else traitement">
+				<button mat-raised-button mdbBtn type="button" color="default" rounded="true" mdbWavesEffect><mat-icon>add</mat-icon>Medicament</button>
+				<mat-form-field formArrayName="medicaments" *ngFor="let medicament of medicamentControls; let i = index;">
+					<div class="row">
+						 <div>
+               				 <h4>Médicament {{i + 1}}</h4>
+           				 </div>
+						<mat-select-autocomplete class="grid-7-11"
+						    [placeholder]="'Options Selection'"
+						    [errorMsg]="errorMessage"
+						    [showErrorMsg]="showError"
+						    [options]="options"
+						    [display]="'display'"
+						    [value]="'value'"
+						    [multiple]='true'
+						    [labelCount]="2"
+						    [selectedOptions]="selectedOptions"
+						    (selectionChange)="getSelectedOptions($event)"
+							formControlName="nom"
+						    >
+  						</mat-select-autocomplete>
+  						<input type="number" formControlName="posologie">
+					</div>
+				</mat-form-field>	  
+			</div>
+			<ng-template #traitement>
+				<div class="md-form">
+					<mat-form-field>
+						<mat-label>Observations du patient</mat-label>
+    					<textarea matInput formControlName="observations" placeholder="Ex. It makes me feel..."></textarea>
+					</mat-form-field>	  
+				</div>
+			</ng-template>
+		</div>
+		
+	</div>
+	
+	<div class="button-row">
+		<button mdbBtn  class="btn btn-primary btn-sm" type="submit"  mdbWavesEffect>Submit</button>
+		<button  mdbBtn class="btn btn-warning btn-sm" type="button" (click)="onClear()" mdbWavesEffect>Clear</button>
+	</div>
+
+</form>

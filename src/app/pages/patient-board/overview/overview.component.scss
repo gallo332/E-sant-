@@ -1,0 +1,149 @@
+@import '~@angular/material/theming';
+/*
+	Card font color
+*/
+.breadcrumb-bar {
+    background-color: #15558d;
+    padding: 15px 0;
+}
+.breadcrumb-bar .breadcrumb-title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 5px 0 0;
+}
+.page-breadcrumb ol {
+    background-color: transparent;
+    font-size: 12px;
+    margin-bottom: 0;
+    padding: 0;
+}
+.page-breadcrumb ol li a {
+    color: #fff;
+}
+.page-breadcrumb ol li.active {
+    color: #fff;
+}
+.page-breadcrumb .breadcrumb-item + .breadcrumb-item:before {
+    color: #fff;
+    font-size: 10px;
+}
+.sort-by {
+    float: right;
+}
+.sort-title {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+
+.div-rdv{
+	margin-top:25px; 
+	
+}
+
+.rdv{
+	margin-top: 20px;
+	margin-left: 15px ;
+}
+.card-rdv{
+	padding: 0px;
+}
+
+#nullrdv{
+	height: 320px;
+	border: 1px black solid;
+	margin:auto;
+	display: flex;
+
+}
+#nullrdv > p{
+	margin:auto;
+	text-align: center;
+	font-size: 20px;
+}
+.mat-card-content{
+	margin-bottom: 0px;
+	display: block;
+}
+
+.mat-card-header {
+	color:#fff;
+	margin: 0px;
+	padding: 0px;
+	background-color:#15558d ;
+
+}
+.mat-card-title{
+	margin-top: 7px;
+	padding: 0px;
+	font-size: 15px;
+}
+
+
+.mat-card-actions  {
+	margin-top: 0px;
+	padding: 1rem 1rem;
+}
+.mat-card-actions h5 {
+	color:#009efb;
+}
+.mat-card-actions button {
+	width: 100%;
+}
+
+.mat-card-content h3 {
+	color:#fff;
+}
+
+
+#banner {
+	background-color: #15558d;
+	height: 150px;
+	color: #fff;
+	
+}
+
+.title{
+	text-decoration: underline;
+}
+
+#events
+{
+
+}
+#banner-img 
+{
+	vertical-align: middle;
+	width: 108px;
+	height: 78.75px;
+}
+
+#antecedent{
+	height: 300px;
+}
+.card-body {
+	padding: 1.5rem 1.5rem 0rem;
+}
+.dossier{
+	margin-top: 50px;
+}
+
+.container{
+	margin-top: 25px;
+}
+
+#rdv-details{
+	height: 400px; 
+	width: 650px; 
+	padding: 3% 3%;
+	border: 2px black solid;
+
+}
+.clickable {
+  cursor: pointer;
+  &:hover {
+    @include mat-elevation(8);
+  }
+}

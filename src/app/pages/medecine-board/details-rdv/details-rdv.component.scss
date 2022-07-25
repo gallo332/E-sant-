@@ -1,0 +1,30 @@
+.img-patient{
+	width: 120px;
+	height: 120px;
+	margin: 10px;
+	
+}
+.img-patient img{
+	width: 120px;
+	height: 120px;
+	border-radius: 4px;
+    object-fit: cover;
+} 
+
+.mat-card-content{
+	margin-bottom: 0px;
+	display: block;
+}
+
+.mat-card-header {
+	margin: 0px;
+	padding: 0px;	
+
+}
+#info-patient{
+	margin:10px;
+}
+
+#info-patient p{
+	font-size:15px;
+}

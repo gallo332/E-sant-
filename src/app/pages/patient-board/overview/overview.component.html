@@ -1,0 +1,153 @@
+<div class="breadcrumb-bar">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-md-12 col-12">
+				<nav aria-label="breadcrumb" class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html">Patient</a></li>
+						
+					</ol>
+				</nav>
+				<h2 class="breadcrumb-title">Mes informations</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container" >
+	<div class="row " > 
+		<div class="col-12 col-md-8 col-lg-8 d-flex">
+			<mat-card class="card flex-fill" id="banner">
+				
+
+				<mat-card-content class="card-body">
+					<div class="d-flex justify-content-between">
+						<div>
+							<h3>Comment tu te sens aujourd'hui ?</h3>
+							<p>
+								Obtenez des consultations illimitées chez le médecin et bien plus encore avec i-health
+							</p>
+						</div>
+						<img id="banner-img" src="assets/img/banner-thumb.png">
+						 
+					</div>		
+					
+
+				</mat-card-content>
+				<mat-card-actions>
+					
+				</mat-card-actions>
+			</mat-card>
+		</div>
+		<div class="col-12 col-md-4 col-lg-4 d-flex">
+			<mat-card class="card flex-fill">
+				
+
+				<mat-card-content>
+					<div class="doctor">
+
+						
+					</div>		
+					
+
+				</mat-card-content>
+			
+			</mat-card>
+		</div>
+	
+	</div>
+	<div *ngIf="!tester; else rdvNull" class="div-rdv row " >
+		<h3 class="col-12 col-md-6 col-lg-12 d-flex title">Mes Rendez Vous</h3>
+		<cdk-virtual-scroll-viewport itemSize="100" class=" col-12 col-md-5 col-lg-5 d-flex" style="height: 700px;" >
+		
+		<div  *cdkVirtualFor=" let rendezVou of rendezVous " class="rdv col-12 col-md-11 col-lg-11 d-flex " >
+			<mat-card class="card card-rdv flex-fill clickable"  (click)="viewRdv(rendezVou.id)" >
+				<mat-card-header class="">
+					<mat-card-title>
+						<i class="far fa-calendar"></i> {{rendezVou.start }}   &nbsp;&nbsp;
+						<!--<i class="far fa-clock"></i> -->
+					</mat-card-title>
+				</mat-card-header>
+
+				<mat-card-content class="card-body">
+					<div class="row">
+						<div class="avatar avatar-lg">
+							<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient8.jpg">
+						</div>
+						&nbsp;&nbsp;
+						<div>
+							<h5>Dr {{rendezVou.prenomD}} {{rendezVou.nomD}} </h5>
+							Medecin {{ rendezVou.groupe }}
+						</div>
+					</div>				
+				</mat-card-content>
+				<mat-card-actions class=" text-center">
+					<hr>
+					
+						<button mat-button color="primary" (click)="sharedFiles()" >							
+							<h5> 
+								<i class="fas fa-caret-down"></i>&nbsp;
+								 <span>AFFICHER LES DOCUMENTS</span>
+							</h5>
+						</button>
+					
+					<div *ngIf="displayFiles" >
+						<mat-list *ngIf="rendezVou.examenRdv.length || rendezVou.antecedentRdv.length" >
+						  <div mat-subheader *ngIf="rendezVou.examenRdv.length" >Examens</div>
+						  <mat-list-item *ngFor="let sharedFile of rendezVou.examenRdv">					
+						    <div mat-line> {{sharedFile.examen.name}} </div>
+							  
+						  </mat-list-item>
+						  <mat-divider></mat-divider>
+						  <div mat-subheader *ngIf="rendezVou.antecedentRdv.length" >Antecedents</div>
+						  <mat-list-item *ngFor="let sharedAnte of rendezVou.antecedentRdv">					
+						    <div mat-line> {{sharedAnte.antecedent.name}} </div>
+							  
+						  </mat-list-item>
+						  
+						</mat-list>	
+						
+					</div>
+					<hr>
+					<button mat-button color="primary" (click)="partagerDoc(rendezVou)" style="margin-bottom: 1rem;" >							
+						<h5>
+							<i class="far fa-share-square"></i>&nbsp;
+							<span>PARTAGER DOCUMENTS</span>
+					    </h5>
+					</button>    
+				</mat-card-actions>
+			</mat-card>
+		</div>
+		</cdk-virtual-scroll-viewport>
+		<div class="col-12 col-md-7 col-lg-7 d-flex" id="rdv-details" >
+			<rendez-vous *ngIf="display" class="flex-fill"></rendez-vous>
+		</div>
+		
+	</div>
+	<ng-template #rdvNull>
+			<div  class="div-rdv row col-12 col-md-12 col-lg-12 d-flex" >
+				<h3 class="col-12 col-md-6 col-lg-12 d-flex title">Mes Rendez Vous</h3>
+	  			<div class=" flex-fill  " id="nullrdv" >
+	  				<p> {{ message }} </p> 
+	  			</div>
+  			</div>
+		</ng-template>
+		
+	<div class="row dossier" >
+		<div class="col-12 col-md-6 col-lg-6 d-flex" style="height: 300px;">
+			<mat-card class="card flex-fill" >
+				<mat-card-header class="card-header">
+					<mat-card-title>Dossier médical</mat-card-title>
+				</mat-card-header>
+
+				<mat-card-content>
+					
+					
+
+				</mat-card-content>
+				<mat-card-actions>
+					
+				</mat-card-actions>
+			</mat-card>
+		</div>
+	</div>
+</div>

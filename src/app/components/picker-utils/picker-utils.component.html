@@ -1,0 +1,61 @@
+ <div class="row text-center" >
+      <div class="col-md-5" style="padding-left: 0;">
+        <div class="btn-group" style="">
+          <div
+            class="btn btn-primary"
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)"
+          >
+            Previous
+          </div>
+          <div
+            class="btn btn-outline-secondary"
+            mwlCalendarToday
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)"
+          >
+            Today
+          </div>
+          <div
+            class="btn btn-primary"
+            mwlCalendarNextView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)"
+          >
+            Next
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex" >
+        <h4> {{ viewDate | calendarDate: view + 'ViewTitle':locale }}</h4> 
+      </div>
+      <div class="col-md-4 d-flex " >
+        <div class="btn-group">
+          <div
+            class="btn btn-primary"
+            (click)="viewChange.emit('month')"
+            [class.active]="view === 'month'"
+          >
+            Mois
+          </div>
+          <div
+            class="btn btn-primary"
+            (click)="viewChange.emit('week')"
+            [class.active]="view === 'week'"
+          >
+            Sem
+          </div>
+          <div
+            class="btn btn-primary"
+            (click)="viewChange.emit('day')"
+            [class.active]="view === 'day'"
+          >
+            Jour
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />

@@ -1,0 +1,32 @@
+
+			<mat-card class="card" >
+				<mat-card-header>
+					<mat-card-title>
+						Antécedents Médicaux
+					</mat-card-title>
+				</mat-card-header>
+
+				<mat-card-content class="card-body">
+					<p *ngIf="tester" > {{message}} </p>
+					<mat-list>
+						<mat-list-item *ngFor="let antecedent of antecedents " >
+							<mat-icon matListIcon>description</mat-icon>
+							<span matLine> {{ antecedent.name }} </span>
+							<button mdbBtn class="btn btn-info btn-sm "  [routerLink]="['./antecedent', antecedent.id]" >
+								Details
+							</button>
+
+							<button mdbBtn class="btn btn-danger btn-sm " (click)="deleteAntecedent( antecedent.id)" >
+								Supprimer
+							</button>
+
+						</mat-list-item>
+					</mat-list> 
+
+				</mat-card-content>
+				<hr>
+				<mat-card-actions class="centre">					
+					<button mat-raised-button mdbBtn type="button" color="default" (click)="addAntecedent()" rounded="true" mdbWavesEffect><mat-icon [inline]="true">add</mat-icon>Nouveau Fichier</button>
+
+				</mat-card-actions>
+			</mat-card>

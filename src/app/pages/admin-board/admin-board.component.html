@@ -1,0 +1,97 @@
+
+<!-- /Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content">
+	<div class="container-fluid">
+
+		<div class="row">
+			<div #sideBar class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+
+				<!-- Profile Sidebar -->
+				<div  class="profile-sidebar">
+					<div class="widget-profile pro-widget-content">
+						<div class="profile-info-widget">
+							<a href="#" class="booking-doc-img">
+								<img src="assets/img/patients/patient.jpg" alt="User Image">
+							</a>
+							<div class="profile-det-info">
+								<h3>AUTORITE DE CONFIANCE </h3>
+
+								<div class="social-icon">
+                                    <ul>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+                                        </li>
+                                    </ul>
+                                </div>
+							</div>
+						</div>
+					</div>
+					<div class="dashboard-widget">
+						<nav class="dashboard-menu">
+							<ul>
+								
+								<li class="active">
+									<a  [routerLink]="['']" >
+										<i class='fas fa-sync-alt'></i>
+										<span>Demandes</span>
+									</a>
+								</li>
+								<li>
+									<a [routerLink]="['']" >
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<span>A propos</span>
+									</a>
+								</li>
+								
+								<li>
+									<a [routerLink]="['']">
+										<i class="fas fa-user-cog"></i>
+										<span>Parametres</span>
+									</a>
+								</li>
+								<li>
+									<a [routerLink]="['']">
+										<i class="fa fa-address-card" aria-hidden="true"></i>
+										<span>Contact</span>
+										<small class="unread-msg"></small>
+									</a>
+								</li>
+								
+								
+								<li>
+									<a href="doctor-change-password.html">
+										<i class="fa fa-home fa-fw"></i>
+										<span>Home</span>
+									</a>
+								</li>
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<!-- /Profile Sidebar -->
+				
+			</div>
+			<div class="col-md-7 col-lg-8 col-xl-9">
+					
+				<router-outlet></router-outlet>
+					
+			</div>
+		</div>
+	</div>			
+</div>	
+

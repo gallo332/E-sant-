@@ -1,0 +1,48 @@
+<mat-toolbar>
+	<span class="fill-remaining-space"></span>
+	<button  mdbBtn class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="partageForm" (ngSubmit)="onSubmit()" >
+	<div class="row">
+		<div class="col-md-5">
+			<div class="md-form">
+				<mat-form-field>
+					<mat-label>Type de Document</mat-label>
+					<mat-select [formControl]="docTypeControl" name="docType" (selectionChange)="chargerDocs($event)">
+						<mat-option  *ngFor="let doctype of doctypes" [value]="doctype.value">
+							{{doctype.viewValue}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+
+			</div>
+			<div class="md-form">
+				<mat-form-field>
+					<mat-label>Document</mat-label>
+					<mat-select [formControl]="docControl" name="document">
+						<mat-option  *ngFor="let doc of docs" [value]="doc.id">
+							{{doc.name}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>	  
+			</div>
+		</div>
+		<div class="row">
+			<div>
+				<h5>Partagé avec :</h5>
+			</div>
+			<div>
+				<h5>Dr {{rendezVous.prenomD}} {{ rendezVous.nomD }} </h5>
+				<p style="font-size: 15px;"> Medecin {{ rendezVous.groupe }}  </p>
+				<p style="font-size: 15px;"> Structure: {{ rendezVous.structure }} </p>
+			</div>
+
+		</div>
+	</div>
+	
+	<div class="button-row">
+		<button mdbBtn  class="btn btn-primary btn-sm" type="submit"  mdbWavesEffect>Submit</button>
+		<button  mdbBtn class="btn btn-warning btn-sm" type="button" (click)="onClose()" mdbWavesEffect>Clear</button>
+	</div>
+
+</form>

@@ -1,0 +1,42 @@
+:host {
+    background: #FFF;
+}
+
+.mat-card-content{
+	margin-bottom: 0px;
+	display: block;
+}
+
+.mat-card-header {
+	color:#fff;
+	margin: 0px;
+	padding: 0px;
+	background-color:#15558d ;
+
+}
+.mat-card-title{
+	margin-top: 7px;
+	padding: 0px;
+	font-size: 15px;
+}
+.rdv{
+	height: 210px;	
+	padding: 0px;
+}
+
+.mat-card-actions  {
+	margin-top: 0px;
+	padding: 0rem 1rem;
+	font-size: 20px;
+}
+.mat-card-actions a {
+	color:#009efb;
+}
+
+.mat-card-content h3 {
+	color:#fff;
+}
+
+.card-body {
+	padding: 1.5rem 1.5rem 0rem;
+}

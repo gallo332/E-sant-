@@ -1,0 +1,22 @@
+<mat-toolbar class="close">
+  <span class="fill-remaining-space"></span>
+  <button  mdbBtn class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="service.antecedent" (ngSubmit)="onSubmit()" >
+	<div class="md-form">
+	  <input mdbInput type="text"  class="form-control" formControlName="name">
+	  <label for="form1" class="">Nom Fichier</label>
+	</div>
+	<div class="md-form">
+	  <input mdbInput type="text"  class="form-control" formControlName="description">
+	  <label for="form1" class="">Description</label>
+	</div>
+	<div class="md-form">
+	  <input mdbInput  type="file" id="form1" class="form-control" (change)="onFileChanged($event)" >	  
+	</div>
+	<div class="button-row">
+		<button mdbBtn  class="btn btn-primary btn-sm" type="submit" [disabled]="service.antecedent.invalid" mdbWavesEffect>Submit</button>
+        <button  mdbBtn class="btn btn-warning btn-sm" type="button" (click)="onClear()" mdbWavesEffect>Clear</button>
+    </div>
+
+</form>

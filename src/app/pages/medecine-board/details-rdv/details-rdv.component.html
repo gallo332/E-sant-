@@ -1,0 +1,84 @@
+<div class="dark-font">
+  <mdb-breadcrumb customClass="cyan lighten-4">
+    <mdb-breadcrumb-item >Rendez vous</mdb-breadcrumb-item>
+    <mdb-breadcrumb-item class="active"> Details </mdb-breadcrumb-item>
+  </mdb-breadcrumb>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-7  d-flex">
+			<mat-card class="card flex-fill">
+				<mat-card-header class="card-header">
+					<mat-card-title>
+						Dossier Partagé
+					</mat-card-title>
+					<hr>
+				</mat-card-header>
+
+				<mat-card-content>
+						<mat-list *ngIf="rendezVous.examenRdv?.length "  >
+						  <div mat-subheader >Examens</div>
+						  <mat-list-item *ngFor="let sharedFile of rendezVou.examenRdv">					
+						    <div mat-line> {{sharedFile.examen.name}} </div>
+						    <button type="button" class="btn btn-info btn-sm">Ouvrir</button>
+						    
+							  
+						  </mat-list-item>
+						 
+						  <mat-divider></mat-divider>
+						</mat-list>	
+						<mat-list *ngIf="rendezVous.antecedentRdv?.length "  >
+						  
+						  <div mat-subheader *ngIf="rendezVous.antecedentRdv?.length" >Antecedents</div>
+						  <mat-list-item *ngFor="let sharedAnte of rendezVous.antecedentRdv">					
+						    <div mat-line> {{sharedAnte.antecedent.name}} </div>
+						    <button type="button" class="btn btn-info btn-sm">Ouvrir</button>
+							  
+						  </mat-list-item>
+						  
+						</mat-list>	
+					
+					
+
+				</mat-card-content>
+			
+			</mat-card>
+		</div>
+		<div class=" col-md-5  d-flex">
+			<mat-card class="card flex-fill">
+				<mat-card-header class="card-header">
+					<mat-card-title>
+						Patient
+					</mat-card-title>
+
+				</mat-card-header>
+				<mat-card-content>
+					<div class="row">
+						<div  class="img-patient" >
+							<img src="assets/img/doctors/doctor-13.jpg" alt="User Image">
+						</div>
+						<div id="info-patient" >
+							<h4> {{rendezVous.prenom}} {{rendezVous.nom}} </h4>
+							<p> <u>Motif:</u> {{rendezVous.title}} </p>
+							<p> <u>Date:</u> {{rendezVous.start | slice:0:20}} </p>
+							
+						</div>
+						
+					</div>		
+					
+
+				</mat-card-content>
+				<mat-card-actions class=" text-center">					
+						<button  type="button" class="btn btn-info float-left"  >				
+							DOCUMENT
+						</button>
+						<button  type="button" class="btn btn-success float-right" [routerLink]="['info-patient/', rendezVous.idP]" >				
+							Plus infos >>
+						</button>
+												
+				</mat-card-actions>
+			
+			</mat-card>
+		</div>
+	</div>
+</div>

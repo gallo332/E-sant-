@@ -1,0 +1,140 @@
+<header class="header">
+	<nav class="navbar navbar-expand-lg header-nav">
+		<div class="navbar-header">
+			<a id="mobile_btn" href="javascript:void(0);">
+				<span class="bar-icon">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</a>
+			<a href="#" class="navbar-brand logo">
+				<img src="assets/img/logoss.PNG" class="img-fluid" alt="Logo">
+			</a>
+		</div>
+		<div class="main-menu-wrapper">
+			<div class="menu-header">
+				<a href="index.html" class="menu-logo">
+					<img src="assets/img/logoss.PNG" class="img-fluid" alt="Logo">
+				</a>
+				<a id="menu_close" class="menu-close" href="javascript:void(0);">
+					<i class="fas fa-times"></i>
+				</a>
+			</div>
+			<!-- <ul class="main-nav">
+				<li class="active">
+					<a [routerLink]="['/home']">Home</a>
+				</li>
+				
+			</ul>		  -->
+			<ul class="main-nav">
+				<!-- <li class="active">
+					<a [routerLink]="['/home']">Home</a>
+				</li> -->
+				<li class="nav-item active"> 
+					<a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home fa-fw"></i>&nbsp;Home <span class="sr-only">(current)</span></a> 
+				</li>
+				<li class="nav-item "> 
+					<a class="nav-link" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Apropos <span class="sr-only">(current)</span></a> 
+				</li>
+				<li class="nav-item"> 
+					<a class="nav-link" href="#"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;Contact</a> 
+				</li>
+			</ul>	
+		</div>		 
+		<ul class="nav header-navbar-rht">
+				
+				<div class="btn-group">
+					
+					<!-- <button mdbDropdownToggle type="button"  color="primary" class="dropdown-toggle waves-light"
+						mdbWavesEffect>
+						Mes informations
+					</button> -->
+					<!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Informations
+					</button> -->
+					<button type="button" class="btn btn-secondary">
+						 Mes informations
+					</button>
+					<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<!-- <span class="sr-only">Toggle Dropdown</span> -->
+						<span aria-hidden="true">▼</span>
+					</button>
+
+					<div class="dropdown-menu dropdown-menu-right">
+						<a class="dropdown-item" [routerLink]="['/patient']">Rendez vous</a>
+						<a class="dropdown-item" [routerLink]="['/patient/dossier-medical']">Dossier medical</a>
+						<a class="dropdown-item" href="#">Paiements</a>
+						<div class="divider dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Parametre</a>
+					</div> 
+				</div>  
+			 <!-- <ul class="passe">
+				<li class="deroulant"><a href="#">Informations &ensp;</a>
+					<ul class="sous">
+						<li><a class="dropdown-item" [routerLink]="['/patient']">Rendez vous</a></li>
+						<li><a class="dropdown-item" [routerLink]="['/patient/dossier-medical']">Dossier medical</a></li>
+						<li> <a class="dropdown-item" href="#">Paiements</a></li>
+						<li> <a class="dropdown-item" href="#">Parametres</a></li>
+					</ul>
+				</li>
+		    </ul> 
+				<div>
+					<ul class=" passe list-unstyled components toggled center-menu">
+						<li class="deroulant"><a href="javascript:void(0);">Informations &ensp;</a>
+					
+							<div>
+								<ul class="sous">
+								<li><a class="dropdown-item" [routerLink]="['/patient']">Rendez vous</a></li>
+								<li><a class="dropdown-item" [routerLink]="['/patient/dossier-medical']">Dossier medical</a></li>
+								<li> <a class="dropdown-item" href="#">Paiements</a></li>
+								<li> <a class="dropdown-item" href="#">Parametres</a></li>
+								</ul>
+							</div>
+						
+					</li>
+					</ul>
+				</div> -->
+				  
+			<!-- <li class="nav-item" >
+				<a class="nav-link header-login" (click)="logout()"  >Deconnexion </a>
+			</li> -->
+			<div class="btn-group  dropdown">
+				<a data-toggle="dropdown" class="nav-link" href="#">
+				  <div class="deplace"><i class="fa fa-user-circle fa-fw fa-2x" aria-hidden="true"></i></div>
+			  	</a>
+			  	<div class="dropdown-menu" style="width: auto;height: auto;">
+					<li>
+					<!-- <button class="btn btn-link" [routerLink]="['/profil-user']"> -->
+						<button class="btn btn-link" [routerLink]="['/login-patient']">
+						<i class="fa fa-shield" aria-hidden="true"></i>&nbsp;
+						<span style="color: black;" >{{ currentUser.nom }}</span>
+					</button>
+					</li>
+					 <br>
+					<li>
+						<!-- <button class="btn btn-link" [routerLink]="['/login-patient']">
+							<i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;
+							<span style="color: black;">Logout</span>
+						</button> -->
+						<mat-menu #menu="">
+								<button mat-menu-item (click)="logout()" >
+										<mat-icon>exit_to_app</mat-icon>
+										Déconnexion
+								</button>
+						</mat-menu>
+					</li>
+					
+			  	</div>
+			</div>
+			<!-- <li>
+				<button class="btn btn-link" href="#">
+					<i class="fa fa-globe" aria-hidden="true"></i>&nbsp;
+					<span style="color: black;">Fr</span>
+				</button>
+			</li>
+			 -->
+		</ul>
+	</nav>
+</header>
+<!-- /Header -->

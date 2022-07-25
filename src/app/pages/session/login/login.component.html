@@ -1,0 +1,24 @@
+<form method="post" [formGroup]="loginForm" (ngSubmit)="login()">
+	<div class="form-group form-focus">
+		<input type="email" formControlName="username" class="form-control floating" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+		<label class="focus-label">Email</label>
+		<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+			<div *ngIf="f.username.errors.required">Username is required</div>
+		</div>
+	</div>
+	<div class="form-group form-focus">
+		<input type="password" formControlName="password" class="form-control floating" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+		<label class="focus-label">Password</label>
+		<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+			<div *ngIf="f.password.errors.required">Password is required</div>
+		</div>
+	</div>
+	<div class="text-right">
+		<a class="forgot-link" href="forgot-password.html">Mot de passe oublié ?</a>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary btn-block btn-lg login-btn">Login</button>
+	</div>
+
+	
+</form>

@@ -1,0 +1,32 @@
+
+			<mat-card class="card" >
+				<mat-card-header>
+					<mat-card-title>
+						Resultats Examens Medical
+					</mat-card-title>
+				</mat-card-header>
+
+				<mat-card-content class="card-body">
+					<p *ngIf="tester" > {{message}} </p>
+					<mat-list>
+						<mat-list-item *ngFor="let examen of examens " >
+							<mat-icon matListIcon>description</mat-icon>
+							<span matLine> {{ examen.name }} </span>
+							<button mdbBtn class="btn btn-info btn-sm "  [routerLink]="['./examen', examen.id]" >
+								Details
+							</button>
+
+							<button mdbBtn class="btn btn-danger btn-sm " (click)="deleteExamen( examen.id)" >
+								Supprimer
+							</button>
+
+						</mat-list-item>
+					</mat-list> 
+
+				</mat-card-content>
+				<hr>
+				<mat-card-actions class="">					
+					<button mat-raised-button mdbBtn type="button" color="default" (click)="addExamen()" rounded="true" mdbWavesEffect><mat-icon [inline]="true">add</mat-icon>Nouveau Fichier</button>
+
+				</mat-card-actions>
+			</mat-card>

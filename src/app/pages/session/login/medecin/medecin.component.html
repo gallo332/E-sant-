@@ -1,0 +1,42 @@
+<body>
+	
+	<div class="row">
+		<div class="col-md-12 col-lg-6 center-block">
+			
+			<div class=" logo ">
+				<img src="assets/img/logoss.PNG" class="img-fluid" alt="Logo">
+			</div>
+			<div class="flex-fill  login-right">
+				<div class="login-header text-center">
+					<h3>Identifiez Vous </h3>
+				</div>
+				<form method="post" [formGroup]="loginForm" (ngSubmit)="login()">
+					<div class="form-group form-focus">
+						<input type="email" formControlName="username" class="form-control floating" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+						<label class="focus-label">Email</label>
+						<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+							<div *ngIf="f.username.errors.required">Username is required</div>
+						</div>
+					</div>
+					<div class="form-group form-focus">
+						<input type="password" formControlName="password" class="form-control floating" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+						<label class="focus-label">Password</label>
+						<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+							<div *ngIf="f.password.errors.required">Password is required</div>
+						</div>
+					</div>
+					<div class="text-right">
+						<a class="forgot-link" href="forgot-password.html">Mot de passe oublié ?</a>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary btn-block btn-lg login-btn">CONNECTEZ VOUS</button>
+					</div>
+
+					<div class="text-center dont-have">Nouveau sur e-santé? <a [routerLink]="['/register']">S'Inscrire</a></div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+

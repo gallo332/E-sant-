@@ -1,0 +1,118 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-md-12 col-12">
+				<nav aria-label="breadcrumb" class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html">Rendez Vous</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Patient</li>
+					</ol>
+				</nav>
+				<h2 class="breadcrumb-title">Nouveau Rendez-Vous</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Breadcrumb -->
+<div class="container" >
+	<div *ngIf="currentUser; else notLogged" class="row rdv">
+		<div class="new-rdv text-center col-md-7 ">
+			<h3> Soumettez votre rendez-vous </h3>
+			<div class="card flex-fill">
+				<div class="card-body">
+					<button type="button" *ngIf="!inscription; else registerForm" class="btn btn-success btn-lg " (click)="sendRdv()" >Envoyer Rendez Vous</button>	
+					<ng-template #registerForm>
+						<div>
+							<register></register>
+						</div>
+					</ng-template>							
+				</div>
+			</div>
+		</div>
+		<div id="doctor" class="col-md-4   d-flex ">
+				<div class="card flex-fill">
+					<div class="card-header">
+						<h5 class="card-title mb-0"> {{date | date:'full':'UTC':'fr'}} </h5>
+						<p> {{type}} </p>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<p style="font-size: 15px;"> 16 Avenue Pasteur , Plateau  Dakar </p>
+						</div>				
+					</div>
+					<div class="card-footer">
+						<div class="row">
+							<div class="avatar avatar-lg">
+								<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient8.jpg">
+							</div>
+							&nbsp;&nbsp;
+							<div>
+								<h5> {{medecin.prenom}} {{medecin.nom}} </h5>
+								Médecin {{medecin.groupe}}
+							</div>
+						</div>				
+					</div>
+				</div>
+			</div>	
+	</div>
+
+	<ng-template #notLogged>
+		<div class="row rdv">
+			<div class="new-rdv text-center col-md-7 ">
+				<h3> Votre rendez-vous n'est pas encore confirmé </h3>
+				<div class="card flex-fill">
+					<div class="card-body">
+						<h5 class="card-text">Nouveau sur i-health ?</h5>
+						<button type="button" *ngIf="!inscription; else registerForm" class="btn btn-info btn-lg " (click)="showRegisterForm()" >S'inscrire</button>	
+						<ng-template #registerForm>
+							<div>
+								<register></register>
+							</div>
+						</ng-template>							
+					</div>
+				</div>
+				<div class="card flex-fill">
+					<div class="card-body">
+						<h5 class="card-text">J'ai déja un compte i-health</h5>
+						<button type="button" *ngIf="!connection; else loginForm" class="btn btn-warning btn-lg flex-fill" (click)="showLoginForm()" >Se connecter</button>	
+						<ng-template #loginForm>
+							<div>
+								<login></login>
+							</div>
+						</ng-template>					
+					</div>
+				</div>
+			
+			</div>
+			<div id="doctor" class="col-md-4   d-flex ">
+				<div class="card flex-fill">
+					<div class="card-header">
+						<h5 class="card-title mb-0"> {{date | date:'full':'UTC':'fr'}} </h5>
+						<p> {{type}} </p>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<p style="font-size: 15px;"> 16 Avenue Pasteur , Plateau  Dakar </p>
+						</div>				
+					</div>
+					<div class="card-footer">
+						<div class="row">
+							<div class="avatar avatar-lg">
+								<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient8.jpg">
+							</div>
+							&nbsp;&nbsp;
+							<div>
+								<h5> {{medecin.prenom}} {{medecin.nom}} </h5>
+								Médecin {{medecin.groupe}}
+							</div>
+						</div>				
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</ng-template>
+	
+</div>	
+

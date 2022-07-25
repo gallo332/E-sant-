@@ -1,0 +1,22 @@
+<div class="container" >
+	<div class="row " >
+		<div id="file"  class="col-md-4 ">
+			<div id="icon-file" class="rounded">
+				<img   src="assets/img/svg/pdf.png" style="width: 150px; height: 150px;">
+			</div>
+			<br>
+			<h4>Fichier : {{ file.name }} </h4>
+			<button mdbBtn class="btn btn-info btn-sm ">Download</button>
+		</div>
+		<div class="col-md-6 content-area"  style="margin-left: 150px;margin-bottom: 50px;">
+			<h3>Doc Viewer</h3>
+			<ngx-extended-pdf-viewer *ngIf="doc" [base64Src]="doc" [height]="'90vh'"
+  				useBrowserLocale="true"
+  				[delayFirstView]="1000"
+  				[textLayer]="true"
+  				style="width: 100%;" >
+			</ngx-extended-pdf-viewer>
+			
+		</div>
+	</div>	
+</div>

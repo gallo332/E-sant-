@@ -1,0 +1,79 @@
+<div class="breadcrumb-bar">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+				<div class="search-box" >
+					<form method="get" [formGroup]="searchForm" (ngSubmit)="search()">
+
+						<div class="form-group search-location">
+							<input  type="text"   placeholder="Search Location"  formControlName="location" class="form-control" >
+
+						</div>
+
+						<div class="form-group search-info">
+
+							<input  #autocompleteInput type="text" matInput   [matAutocomplete]="auto"  placeholder="Medecin, hopital, spécialité"  formControlName="medecinSpec" class="form-control">
+							<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+								<mat-option *ngFor="let specialite of specialiteComplete " [value]="specialite">
+									{{specialite.nom}}
+
+								</mat-option>
+								<hr>
+								<mat-option *ngFor="let medecin of autoCompleteList" [value]="medecin" >
+									<a id="medecin" [routerLink]="['/medecin',medecin.id]">{{medecin.prenom}}</a>&nbsp;
+									<small style="color: #2430EE;"><a  id="groupe" [routerLink]="['/medecin',medecin.id]" >Medecin {{medecin.groupe}} </a> </small>
+								</mat-option>
+							</mat-autocomplete>
+
+							<!--<div *ngIf="medecinSpec.value" class="searchList">	
+								<span *ngIf="medecinsLoading" i18n>Loading</span> 
+								<a class="dropdown-item" [routerLink]="['/medecin',medecin.id]" *ngFor="let medecin of medecins | async">{{medecin.prenom}} {{medecin.nom}}</a>
+							</div>-->
+						</div>
+			
+						<button type="submit" class="btn btn-primary search-btn"><i class="fas fa-search"></i> <span> RECHERCHER</span></button>
+			
+					</form>
+				</div>
+			</div>
+		
+	</div>	
+</div>
+<section class="section section-medecin">
+	<div class="container-fluid">
+		 <div class="row col-12 col-md-9 col-lg-9 d-flex">
+			<div *ngFor=" let medecin of resultMeds | async " class="card-doctor col-12 col-md-9 col-lg-9 d-flex" >
+				<mat-card class="card flex-fill" >
+
+					<mat-card-content class="card-body">
+						<div class="row">
+							<div class="avatar avatar-xl">
+								<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient8.jpg">
+							</div>
+							&nbsp;&nbsp;
+							<div class="perso-doc">
+
+								<a href=""> Dr {{ medecin.prenom }} {{ medecin.nom}} </a>
+								<h5>Médecin {{ medecin.groupe}} </h5>
+							</div>
+						</div>	
+						
+						<span id="video"> Consultation vidéo disponible</span>	
+						<br>
+						<p id="adress">Ouakam, Cité Assemblée</p>
+
+								
+					</mat-card-content>
+					<mat-card-actions class=" text-center">					
+						<button  type="button" class="btn btn-info" (click) ="goToProfile(medecin)" >				
+							PRENDRE RENDEZ VOUS
+						</button>
+						
+						
+					</mat-card-actions>
+				</mat-card>
+			</div>
+			
+		</div>
+	</div>
+</section>
+

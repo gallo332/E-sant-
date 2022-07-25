@@ -1,0 +1,78 @@
+.search-box form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}   
+.search-box .form-control {
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.075);
+    border-radius: 5px;
+    padding-left: 35px;
+    
+}
+.search-box .search-location {
+    -ms-flex: 0 0 240px;
+    flex: 0 0 240px;
+    margin-right: 12px;
+    margin-top: 50px;
+    position: relative;
+    width: 240px;
+}
+.search-location .form-control {
+    background: #fff url(../../../assets/img/location.png) no-repeat 10px center;
+}
+.search-box .search-info {
+    -ms-flex: 0 0 490px;
+    flex: 0 0 490px;
+    margin-right: 12px;
+    margin-top: 50px;
+    position: relative;
+    width: 490px;
+}
+.search-info .form-control {
+    background: #fff url(../../../assets/img/search.png) no-repeat 10px center;
+}
+.search-box .search-btn {
+    width: 140px;
+    -ms-flex: 0 0 140px;
+    flex: 0 0 140px;
+    height: 46px;
+    margin-top: 50px;
+}
+.search-box .search-btn span {
+    
+    font-weight: 500;
+}
+.search-box .form-text {
+    color: #757575;
+    font-size: 13px;
+}
+.mat-option :hover{
+    background-color: #98CEE3;
+    height: 30px;
+
+}
+/*.mat-option a {
+    font-weight: bold;
+    font-size: 17px;
+
+}*/
+#medecin{
+    font-weight: bold;
+    font-size: 17px;
+}
+.mat-option a:hover{
+    color: black;
+}
+.searchList {
+    padding-right: 20px;
+    position: absolute;
+    z-index: 1;
+    border: solid 1px #F3F6F5;    
+    background: #FFFFFF;
+    ul {
+        li:hover {
+            background: #98CEE3;
+        }
+    }
+}

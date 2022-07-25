@@ -1,0 +1,34 @@
+	<mat-card class="card rdv flex-fill" >
+		<mat-card-header class="">
+			<mat-card-title>
+				<i class="far fa-calendar"></i> {{rendezVous.start }}   &nbsp;&nbsp;
+				<!--<i class="far fa-clock"></i> -->
+			</mat-card-title>
+		</mat-card-header>
+
+		<mat-card-content class="card-body">
+			<div class="row">
+				<div class="avatar avatar-lg">
+					<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/patients/patient8.jpg">
+				</div>
+				&nbsp;&nbsp;
+				<div>
+					<h5>Dr {{rendezVous.prenomD}} {{rendezVous.nomD}} </h5>
+					Medecin {{ rendezVous.groupe }}
+				</div>
+			</div>				
+		</mat-card-content>
+		<hr>
+		<mat-card-actions class=" text-center">
+			<a matRipple href="" class="float-left">
+				<i class="fas fa-history"></i>
+				<span>DEPLACER le RDV</span>  
+			</a>
+			<a matRipple [routerLink]="['/patient/delete-rendezvous', rendezVous.id]" class="float-right" style="color:red;"> 
+				<i class="fas fa-times"></i>
+				<span> ANNULER le RDV  </span> 
+			</a>
+			
+			
+		</mat-card-actions>
+	</mat-card>

@@ -1,0 +1,35 @@
+<div  style="height: 300px;">
+<picker-utils-header [(view)]="view" [(viewDate)]="viewDate">
+</picker-utils-header>
+
+<div class="alert alert-info">
+  Choisir le créneau à réserver.
+  <strong *ngIf="clickedDate"
+    >Créneau choisi: {{ clickedDate | date:'medium' }}</strong
+  >
+  <strong *ngIf="clickedColumn != null"
+    >You clicked on this column: {{ clickedColumn }}</strong
+  >
+</div>
+
+<div [ngSwitch]="view">
+ 
+  <mwl-calendar-week-view
+    *ngSwitchCase="'week'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [locale]="locale"
+    (dayHeaderClicked)="clickedDate = $event.day.date"
+    (hourSegmentClicked)="sendDate($event.date)"
+  >
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view
+    *ngSwitchCase="'day'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [locale]="locale"
+    (hourSegmentClicked)="clickedDate = $event.date"
+  >
+  </mwl-calendar-day-view>
+</div>
+</div>

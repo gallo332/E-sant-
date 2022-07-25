@@ -1,0 +1,11 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper">	
+<header-patient *ngIf="currentUser; else notLogged"> </header-patient>
+	
+	<ng-template #notLogged>
+  		<app-header ></app-header>
+	</ng-template>
+	<alert></alert>
+	<router-outlet></router-outlet>
+	<app-footer></app-footer>
+</div>

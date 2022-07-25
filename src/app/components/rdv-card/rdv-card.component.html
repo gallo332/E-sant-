@@ -1,0 +1,50 @@
+<mat-card class="card  " >
+	<mat-card-header class="card-header">
+		<mat-card-title> Prenez votre rendez-vous en ligne </mat-card-title> 
+	</mat-card-header>
+
+	<mat-card-content class="card-body">
+		<div class="row">
+			<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+			<mat-vertical-stepper #linearVerticalStepper="matVerticalStepper" formArrayName="formArray"   #stepper>
+				<ng-template matStepperIcon="edit">
+  					<mat-icon>done</mat-icon>
+				</ng-template>
+				<mat-step  formGroupName="0" [stepControl]="formArray?.get([0])"   required>
+					<ng-template  matStepLabel> Type de Consultation</ng-template>
+						<mat-radio-group aria-label="Select an option" formControlName="typeConsultation" (change)="goForward($event)" >
+							<div class="form-group"  style="background-color: #80C9F4;" >
+  								<mat-radio-button  value="consultation" name="typeConsultation" >Au Cabinet</mat-radio-button>
+  								<i class="fas fa-clinic-medical" style="float: right;"></i>
+  							</div>
+  							<div class="form-group"  style="background-color: #80C9F4;" >
+  								<mat-radio-button value="consultation-video" name="typeConsultation" >En Vidéo</mat-radio-button>
+  								<i class="fas fa-video" style="float: right;"></i>
+  							</div>
+						</mat-radio-group>
+  								
+				</mat-step>
+
+				<mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+					<ng-template matStepLabel>Selectionner votre rendez-vous</ng-template>
+					<datetime-picker (rdvDate)="retrieveData($event)" >Loading ...</datetime-picker>
+					
+				</mat-step>
+
+				<mat-step>
+					<ng-template matStepLabel>Confirmer le rendez-vous</ng-template>
+      				<div>
+       					 <button mat-button  class="btn btn-success">Suivant</button>
+        				 <button type="button" class="btn btn-danger" mat-button (click)="linearVerticalStepper.reset()">Reset</button>
+    			    </div>
+    			     
+				</mat-step>
+			</mat-vertical-stepper>
+		</form>
+	</div>	
+
+</mat-card-content>
+<mat-card-actions class=" text-center">					
+
+</mat-card-actions>
+</mat-card>

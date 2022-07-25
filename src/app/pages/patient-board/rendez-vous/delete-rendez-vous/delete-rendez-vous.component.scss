@@ -1,0 +1,76 @@
+.breadcrumb-bar {
+    background-color: #15558d;
+    padding: 15px 0;
+}
+.breadcrumb-bar .breadcrumb-title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 5px 0 0;
+}
+.page-breadcrumb ol {
+    background-color: transparent;
+    font-size: 12px;
+    margin-bottom: 0;
+    padding: 0;
+}
+.page-breadcrumb ol li a {
+    color: #fff;
+}
+.page-breadcrumb ol li.active {
+    color: #fff;
+}
+.page-breadcrumb .breadcrumb-item + .breadcrumb-item:before {
+    color: #fff;
+    font-size: 10px;
+}
+.sort-by {
+    float: right;
+}
+.sort-title {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.mat-card-content{
+	margin-bottom: 0px;
+	display: block;
+}
+
+.mat-card-header {
+	color:#fff;
+	margin: 0px;
+	padding: 0px;
+	background-color:#15558d ;
+
+}
+.mat-card-title{
+	margin-top: 7px;
+	padding: 0px;
+	font-size: 15px;
+}
+.rdv{
+	margin-top: 5%;
+}
+.card-rdv{
+	padding: 0px;
+}
+.mat-card-actions  {
+	margin-top: 0px;
+	padding: 0rem 1rem;
+	font-size: 20px;
+}
+.mat-card-actions a {
+	color:#009efb;
+}
+
+.mat-card-content h3 {
+	color:#fff;
+}
+
+.card-body {
+	padding: 1.5rem 1.5rem 0rem;
+}
+.mat-card{
+	height: 300px;
+}

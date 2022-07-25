@@ -1,0 +1,100 @@
+@import 'src/app/common.scss';
+
+ .e-table-container {
+                .e-month-view {
+                    .e-content-wrap {
+                        .e-work-cells {
+                            .e-block-indicator {
+                                visibility: hidden;
+                            }
+
+                            .e-appointment {
+                                .e-time,
+                                .e-subject {
+                                    padding: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+.e-quick-popup-wrapper.e-popup-open {
+    .e-event-popup {
+        .quick-info-header {
+            background-color: white;
+            padding: 8px 18px;
+
+            .quick-info-header-content {
+                height: 50px;
+                justify-content: flex-end;
+                display: flex;
+                flex-direction: column;
+                padding: 0 10px 5px;
+
+                .quick-info-title {
+                    font-weight: 500;
+                    font-size: 16px;
+                    letter-spacing: 0.48px;
+                    height: 22px;
+                }
+
+                .duration-text {
+                    font-size: 11px;
+                    letter-spacing: 0.33px;
+                    height: 14px;
+                }                       
+            }
+        }
+
+        .event-content {
+            height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 15px;
+
+            div {
+                font-size: 11px;
+                color: $planner-font-color2;
+                letter-spacing: 0.33px;
+                height: 14px;
+                padding: 5px;
+
+                label {
+                    display: inline-block;
+                    min-width: 70px;
+                    color: $planner-font-color2;
+                }
+
+                span {
+                    font-size: 11px;
+                    color: #151515;
+                    letter-spacing: 0.33px;
+                    line-height: 14px;
+                    padding-left: 8px;
+                }
+            }
+        }
+    }
+}
+.property-panel-section{
+    background-color: white;
+}
+
+.header-customization {
+    padding-bottom: 10px;
+}
+
+.property-customization {
+    
+}
+
+.button-customization {
+    padding: 15px;
+}
+
+@media (max-width: 441px){
+    .button-customization {
+        padding: 30px;
+    }
+}

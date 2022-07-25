@@ -1,0 +1,12 @@
+<mat-dialog-content>
+	<mat-icon class="float-right" (click)="closeDialog()" >close </mat-icon>
+	<br>
+	<p>
+		{{ data.message }}
+	</p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button class="btn btn-danger btn-sm" color="primary"  tabindex="1" [mat-dialog-close]="true" >Oui</button>
+	<button class="btn btn-light btn-sm"  mat-dialog-close tabindex="-1" 
+	[mat-dialog-close]="false" >Annuler</button>
+</mat-dialog-actions>
